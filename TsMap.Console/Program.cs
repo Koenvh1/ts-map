@@ -11,19 +11,15 @@ namespace TsMap.Console
         private static void Main(string[] args)
         {
             var mods = new System.Collections.Generic.List<Mod> {
-                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-me-assets-v241.scs"),
-                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-me-defmap-v241.scs"),
-                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-def-st-v241.scs"),
-                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\RusMap-map_v1.8.1.2.scs"),
-                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\RusMap-model2_v1.8.1.2.scs"),
-                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\RusMap-model_v1.8.1.2.scs"),
-                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-assets-v241.scs"),
-                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-map-v241.scs"),
-                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-media-v241.scs"),
-                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-model1-v241.scs"),
-                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-model2-v241.scs"),
-                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-model3-v241.scs"),
-                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\RusMap-def_v1.8.1.2.scs"),
+                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-me-assets-v250.scs"),
+                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-me-defmap-v250.scs"),
+                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-def-st-v250.scs"),
+                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-assets-v250.scs"),
+                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-map-v250.scs"),
+                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-media-v250.scs"),
+                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-model1-v250.scs"),
+                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-model2-v250.scs"),
+                new Mod(@"D:\Documents\Euro Truck Simulator 2\mod\promods-model3-v250.scs"),
             };
             mods.ForEach(x => x.Load = true);
             TsMapper mapper = new TsMapper("D:/Apps/Steam/steamapps/common/Euro Truck Simulator 2/", mods);
@@ -35,18 +31,19 @@ namespace TsMap.Console
 
             var path = @"F:/Screenshots";
 
-            int width, height, scale;
-            width = height = scale = 4000;
+            int width, height;
+            width = height = 256;
+            float scale = 0.1f;
 
-            int upperX = 160_000;// 160_000;
-            int lowerX = -120_000;// -120_000;
+            int upperX = 3840;// 160_000;
+            int lowerX = -3840;// -120_000;
 
-            int upperY = 130_000;// 130_000;
-            int lowerY = -210_000;// -210_000;
+            int upperY = 3840;// 130_000;
+            int lowerY = -3840;// -210_000;
 
-            for (int y = lowerY; y < upperY; y += scale * 2)
+            for (int y = lowerY; y < upperY; y += height * 2)
             {
-                for (int x = lowerX; x < upperX; x += scale * 2)
+                for (int x = lowerX; x < upperX; x += width * 2)
                 {
                     var bitmap = new Bitmap(width, height);
 

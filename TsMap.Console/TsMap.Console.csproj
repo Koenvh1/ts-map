@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>TsMap.Console</RootNamespace>
     <AssemblyName>TsMap.Console</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TsMap.Canvas\TsMap.Canvas.csproj">
-      <Project>{B32C5D14-37B7-4E9F-A046-FB91C3338F02}</Project>
+      <Project>{b32c5d14-37b7-4e9f-a046-fb91c3338f02}</Project>
       <Name>TsMap.Canvas</Name>
     </ProjectReference>
     <ProjectReference Include="..\TsMap\TsMap.csproj">
@@ -63,5 +63,6 @@
       <Name>TsMap</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

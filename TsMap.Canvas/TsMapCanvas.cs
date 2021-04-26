@@ -98,6 +98,7 @@ namespace TsMap.Canvas
 
                 Directory.CreateDirectory($"{exportPath}/Tiles/{z}/{x}");
                 bitmap.Save($"{exportPath}/Tiles/{z}/{x}/{y}.png", ImageFormat.Png);
+                Console.WriteLine($"{z}/{x}/{y}");
             }
         }
         private void ZoomOutAndCenterMap(float targetWidth, float targetHeight, out PointF pos, out float zoom)

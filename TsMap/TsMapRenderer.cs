@@ -50,7 +50,7 @@ namespace TsMap
                 var ferryConnections = _mapper.FerryConnections.Where(item => !item.Hidden)
                     .ToList();
 
-                var ferryPen = new Pen(palette.FerryLines, 50) {DashPattern = new[] {10f, 10f}};
+                var ferryPen = new Pen(palette.FerryLines, 50) { DashPattern = new[] { 10f, 10f } };
 
                 foreach (var ferryConnection in ferryConnections)
                 {
@@ -322,9 +322,9 @@ namespace TsMap
 
                         for (var i = 0; i < 8; i++)
                         {
-                            var s = i / (float) (8 - 1);
-                            var x = (float) TsRoadLook.Hermite(s, sx, ex, tanSx, tanEx);
-                            var z = (float) TsRoadLook.Hermite(s, sz, ez, tanSz, tanEz);
+                            var s = i / (float)(8 - 1);
+                            var x = (float)TsRoadLook.Hermite(s, sx, ex, tanSx, tanEx);
+                            var z = (float)TsRoadLook.Hermite(s, sz, ez, tanSz, tanEz);
                             newPoints.Add(new PointF(x, z));
                         }
                         road.AddPoints(newPoints);
@@ -401,7 +401,7 @@ namespace TsMap
                     if (prefab.Prefab.PrefabNodes == null) continue;
                     var mapPointOrigin = prefab.Prefab.PrefabNodes[prefab.Origin];
 
-                    var rot = (float) (originNode.Rotation - Math.PI -
+                    var rot = (float)(originNode.Rotation - Math.PI -
                                        Math.Atan2(mapPointOrigin.RotZ, mapPointOrigin.RotX) + Math.PI / 2);
 
                     var prefabstartX = originNode.X - mapPointOrigin.X;
@@ -416,41 +416,41 @@ namespace TsMap
                         switch (spawnPoint.Type)
                         {
                             case TsSpawnPointType.GasPos:
-                            {
-                                var overlay = _mapper.LookupOverlay(ScsHash.StringToToken("gas_ico"));
-                                b = overlay?.GetBitmap();
-                                break;
-                            }
+                                {
+                                    var overlay = _mapper.LookupOverlay(ScsHash.StringToToken("gas_ico"));
+                                    b = overlay?.GetBitmap();
+                                    break;
+                                }
                             case TsSpawnPointType.ServicePos:
-                            {
-                                var overlay = _mapper.LookupOverlay(ScsHash.StringToToken("service_ico"));
-                                b = overlay?.GetBitmap();
-                                break;
-                            }
+                                {
+                                    var overlay = _mapper.LookupOverlay(ScsHash.StringToToken("service_ico"));
+                                    b = overlay?.GetBitmap();
+                                    break;
+                                }
                             case TsSpawnPointType.WeightStationPos:
-                            {
-                                var overlay = _mapper.LookupOverlay(ScsHash.StringToToken("weigh_station_ico"));
-                                b = overlay?.GetBitmap();
-                                break;
-                            }
+                                {
+                                    var overlay = _mapper.LookupOverlay(ScsHash.StringToToken("weigh_station_ico"));
+                                    b = overlay?.GetBitmap();
+                                    break;
+                                }
                             case TsSpawnPointType.TruckDealerPos:
-                            {
-                                var overlay = _mapper.LookupOverlay(ScsHash.StringToToken("dealer_ico"));
-                                b = overlay?.GetBitmap();
-                                break;
-                            }
+                                {
+                                    var overlay = _mapper.LookupOverlay(ScsHash.StringToToken("dealer_ico"));
+                                    b = overlay?.GetBitmap();
+                                    break;
+                                }
                             case TsSpawnPointType.BuyPos:
-                            {
-                                var overlay = _mapper.LookupOverlay(ScsHash.StringToToken("garage_large_ico"));
-                                b = overlay?.GetBitmap();
-                                break;
-                            }
+                                {
+                                    var overlay = _mapper.LookupOverlay(ScsHash.StringToToken("garage_large_ico"));
+                                    b = overlay?.GetBitmap();
+                                    break;
+                                }
                             case TsSpawnPointType.RecruitmentPos:
-                            {
-                                var overlay = _mapper.LookupOverlay(ScsHash.StringToToken("recruitment_ico"));
-                                b = overlay?.GetBitmap();
-                                break;
-                            }
+                                {
+                                    var overlay = _mapper.LookupOverlay(ScsHash.StringToToken("recruitment_ico"));
+                                    b = overlay?.GetBitmap();
+                                    break;
+                                }
                         }
                         if (b != null)
                             g.DrawImage(b, newPoint.X - b.Width / 2f, newPoint.Y - b.Height / 2f, b.Width, b.Height);
@@ -464,7 +464,7 @@ namespace TsMap
                             originNode.X, originNode.Z);
 
                         if (triggerPoint.TriggerId == lastId) continue;
-                        lastId = (int) triggerPoint.TriggerId;
+                        lastId = (int)triggerPoint.TriggerId;
 
                         if (triggerPoint.TriggerActionToken == ScsHash.StringToToken("hud_parking")) // parking trigger
                         {
@@ -523,8 +523,8 @@ namespace TsMap
                     }
 
                     var textSize = g.MeasureString(name, cityFont);
-                    g.DrawString(name, cityFont, _cityShadowColor, coords.X + 2, coords.Y + 2);
-                    g.DrawString(name, cityFont, palette.CityName, coords.X, coords.Y);
+                    //g.DrawString(name, cityFont, _cityShadowColor, coords.X + 2, coords.Y + 2);
+                    //g.DrawString(name, cityFont, palette.CityName, coords.X, coords.Y);
                 }
                 cityFont.Dispose();
             }
@@ -534,9 +534,9 @@ namespace TsMap
             var elapsedTime = DateTime.Now.Ticks - startTime;
             if (renderFlags.IsActive(RenderFlags.TextOverlay))
             {
-                g.DrawString(
-                    $"DrawTime: {elapsedTime / TimeSpan.TicksPerMillisecond} ms, x: {startPoint.X}, y: {startPoint.Y}, scale: {scale}",
-                    _defaultFont, Brushes.WhiteSmoke, 5, 5);
+                //g.DrawString(
+                //    $"DrawTime: {elapsedTime / TimeSpan.TicksPerMillisecond} ms, x: {startPoint.X}, y: {startPoint.Y}, scale: {scale}",
+                //    _defaultFont, Brushes.WhiteSmoke, 5, 5);
 
                 //g.FillRectangle(new SolidBrush(Color.FromArgb(100, 0, 0, 0)), 5, 20, 150, 150);
                 //g.DrawString($"Road: {roadTime / TimeSpan.TicksPerMillisecond}ms", _defaultFont, Brushes.White, 10, 40);
